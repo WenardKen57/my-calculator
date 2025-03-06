@@ -7,13 +7,16 @@ const operationButton = document.createElement("button");
 operationButton.classList.toggle("operationButton");
 
 const addOperationButton = operationButton.cloneNode(true);
-addOperationButton.textContent = "+";
 const subtractOperationButton = operationButton.cloneNode(true);
-subtractOperationButton.textContent = "-";
 const multiplyOperationButton = operationButton.cloneNode(true);
-multiplyOperationButton.textContent = "x";
 const divideOperationButton = operationButton.cloneNode(true);
+const equalOperationButton = operationButton.cloneNode(true);
+
+addOperationButton.textContent = "+";
+subtractOperationButton.textContent = "-";
+multiplyOperationButton.textContent = "x";
 divideOperationButton.textContent = "÷";
+equalOperationButton.textContent = "=";
 
 operationButtonContainer.appendChild(addOperationButton);
 operationButtonContainer.appendChild(subtractOperationButton);
