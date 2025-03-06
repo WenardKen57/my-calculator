@@ -20,14 +20,6 @@ const divideOperationButton = operationButton.cloneNode(true);
 const equalOperationButton = operationButton.cloneNode(true);
 const clearOperationButton = operationButton.cloneNode(true);
 
-display.textContent = "000";
-addOperationButton.textContent = "+";
-subtractOperationButton.textContent = "-";
-multiplyOperationButton.textContent = "x";
-divideOperationButton.textContent = "÷";
-equalOperationButton.textContent = "=";
-clearOperationButton.textContent = "Clear";
-
 let x, y, operator;
 
 function add(x, y) {
@@ -49,6 +41,28 @@ function divide(x, y) {
 function operate(operator, x, y) {
 
 }
+
+let displayValue = "";
+display.textContent = displayValue;
+addOperationButton.textContent = "+";
+subtractOperationButton.textContent = "-";
+multiplyOperationButton.textContent = "x";
+divideOperationButton.textContent = "÷";
+equalOperationButton.textContent = "=";
+clearOperationButton.textContent = "Clear";
+
+digitContainer.addEventListener("click", (event) => {
+  let target = event.target;
+
+  switch (target.className) {
+    case "digitButton":
+      display.textContent = displayValue + target.innerHTML;
+      break;
+    
+    default:
+      break;
+  }
+})
 
 for (let i = 0; i < 10; i++) {
   digitButton.textContent = i;
