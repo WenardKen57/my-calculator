@@ -1,10 +1,24 @@
 const container = document.querySelector("#container");
-
-const operatorButtonContainer = document.createElement("div");
-const operatorButton = document.createElement("button");
-
 const digitContainer = document.createElement("div");
 const digitButton = document.createElement("button");
+const operationButtonContainer = document.createElement("div");
+const operationButton = document.createElement("button");
+
+operationButton.classList.toggle("operationButton");
+
+const addOperationButton = operationButton.cloneNode(true);
+addOperationButton.textContent = "+";
+const subtractOperationButton = operationButton.cloneNode(true);
+subtractOperationButton.textContent = "-";
+const multiplyOperationButton = operationButton.cloneNode(true);
+multiplyOperationButton.textContent = "x";
+const divideOperationButton = operationButton.cloneNode(true);
+divideOperationButton.textContent = "x";
+
+operationButtonContainer.appendChild(addOperationButton);
+operationButtonContainer.appendChild(subtractOperationButton);
+operationButtonContainer.appendChild(multiplyOperationButton);
+operationButtonContainer.appendChild(divideOperationButton);
 
 for (let i = 0; i < 10; i++) {
   digitButton.textContent = i;
@@ -33,6 +47,6 @@ function divide(x, y) {
 function operate(operator, x, y) {
 
 }
-
+container.appendChild(operationButtonContainer)
 container.appendChild(digitContainer);
 
