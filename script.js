@@ -13,7 +13,7 @@ subtractOperationButton.textContent = "-";
 const multiplyOperationButton = operationButton.cloneNode(true);
 multiplyOperationButton.textContent = "x";
 const divideOperationButton = operationButton.cloneNode(true);
-divideOperationButton.textContent = "x";
+divideOperationButton.textContent = "÷";
 
 operationButtonContainer.appendChild(addOperationButton);
 operationButtonContainer.appendChild(subtractOperationButton);
