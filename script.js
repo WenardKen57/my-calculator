@@ -58,6 +58,7 @@ operationButtonContainer.appendChild(addOperationButton);
 operationButtonContainer.appendChild(subtractOperationButton);
 operationButtonContainer.appendChild(multiplyOperationButton);
 operationButtonContainer.appendChild(divideOperationButton);
+operationButtonContainer.appendChild(equalOperationButton);
 
 buttonContainer.appendChild(operationButtonContainer);
 buttonContainer.appendChild(digitContainer);
