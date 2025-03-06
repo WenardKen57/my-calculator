@@ -18,6 +18,7 @@ const subtractOperationButton = operationButton.cloneNode(true);
 const multiplyOperationButton = operationButton.cloneNode(true);
 const divideOperationButton = operationButton.cloneNode(true);
 const equalOperationButton = operationButton.cloneNode(true);
+const clearOperationButton = operationButton.cloneNode(true);
 
 display.textContent = "000";
 addOperationButton.textContent = "+";
@@ -25,6 +26,7 @@ subtractOperationButton.textContent = "-";
 multiplyOperationButton.textContent = "x";
 divideOperationButton.textContent = "÷";
 equalOperationButton.textContent = "=";
+clearOperationButton.textContent = "Clear";
 
 let x, y, operator;
 
@@ -59,6 +61,7 @@ operationButtonContainer.appendChild(subtractOperationButton);
 operationButtonContainer.appendChild(multiplyOperationButton);
 operationButtonContainer.appendChild(divideOperationButton);
 operationButtonContainer.appendChild(equalOperationButton);
+operationButtonContainer.appendChild(clearOperationButton);
 
 buttonContainer.appendChild(operationButtonContainer);
 buttonContainer.appendChild(digitContainer);
