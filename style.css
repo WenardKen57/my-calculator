@@ -4,13 +4,22 @@
   box-sizing: border-box;
 }
 
-#container {
+.buttonContainer {
   height: 100vh;
   border: 1px solid black;
   padding: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(4, 109, 74);
+}
+
+.display {
+  border: 1px solid black;
+  text-align: center;
+  padding: 20px;
+  font-size: large;
+  background-color: aquamarine;
 }
 
 .operationContainer,

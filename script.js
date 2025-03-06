@@ -1,9 +1,13 @@
 const container = document.querySelector("#container");
+const display = document.createElement("div");
+const buttonContainer = document.createElement("div");
 const digitContainer = document.createElement("div");
 const digitButton = document.createElement("button");
 const operationButtonContainer = document.createElement("div");
 const operationButton = document.createElement("button");
 
+display.classList.toggle("display");
+buttonContainer.classList.toggle("buttonContainer");
 digitContainer.classList.toggle("digitContainer");
 operationButtonContainer.classList.toggle("operationContainer");
 digitButton.classList.toggle("digitButton");
@@ -15,22 +19,12 @@ const multiplyOperationButton = operationButton.cloneNode(true);
 const divideOperationButton = operationButton.cloneNode(true);
 const equalOperationButton = operationButton.cloneNode(true);
 
+display.textContent = "000";
 addOperationButton.textContent = "+";
 subtractOperationButton.textContent = "-";
 multiplyOperationButton.textContent = "x";
 divideOperationButton.textContent = "÷";
 equalOperationButton.textContent = "=";
-
-operationButtonContainer.appendChild(addOperationButton);
-operationButtonContainer.appendChild(subtractOperationButton);
-operationButtonContainer.appendChild(multiplyOperationButton);
-operationButtonContainer.appendChild(divideOperationButton);
-
-for (let i = 0; i < 10; i++) {
-  digitButton.textContent = i;
-  digitButton.setAttribute("id", `${i}`);
-  digitContainer.appendChild(digitButton.cloneNode(true));
-}
 
 let x, y, operator;
 
@@ -53,6 +47,21 @@ function divide(x, y) {
 function operate(operator, x, y) {
 
 }
-container.appendChild(operationButtonContainer)
-container.appendChild(digitContainer);
+
+for (let i = 0; i < 10; i++) {
+  digitButton.textContent = i;
+  digitButton.setAttribute("id", `${i}`);
+  digitContainer.appendChild(digitButton.cloneNode(true));
+}
+
+operationButtonContainer.appendChild(addOperationButton);
+operationButtonContainer.appendChild(subtractOperationButton);
+operationButtonContainer.appendChild(multiplyOperationButton);
+operationButtonContainer.appendChild(divideOperationButton);
+
+buttonContainer.appendChild(operationButtonContainer);
+buttonContainer.appendChild(digitContainer);
+
+container.appendChild(display);
+container.appendChild(buttonContainer);
 
