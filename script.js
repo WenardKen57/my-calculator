@@ -4,6 +4,9 @@ const digitButton = document.createElement("button");
 const operationButtonContainer = document.createElement("div");
 const operationButton = document.createElement("button");
 
+digitContainer.classList.toggle("digitContainer");
+operationButtonContainer.classList.toggle("operationContainer");
+digitButton.classList.toggle("digitButton");
 operationButton.classList.toggle("operationButton");
 
 const addOperationButton = operationButton.cloneNode(true);
