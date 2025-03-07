@@ -41,8 +41,8 @@ function divide(x, y) {
   return (x / y);
 }
 
-function operate(operator, x, y) {
-
+function operate(operator, xArr, yArr) {
+  
 }
 
 addOperationButton.textContent = "+";
@@ -52,14 +52,20 @@ divideOperationButton.textContent = "÷";
 equalOperationButton.textContent = "Equal";
 clearOperationButton.textContent = "Clear";
 
-const operation = [];
+const operation = [[], [], []];
+let iOperand = 0;
+
+function displayOperation() {
+  display.textContent = operation[iOperand];
+}
 
 digitContainer.addEventListener("click", (event) => {
   let target = event.target;
 
   switch (target.className) {
     case "digitButton":
-      operation.push(parseInt(target.innerHTML));
+      operation[iOperand] = parseInt(operation[iOperand] + target.innerHTML);
+      displayOperation();
       console.log(operation);
       break;
 
@@ -73,12 +79,18 @@ operationButtonContainer.addEventListener("click", (event) => {
 
   switch (target.className) {
     case "operationButton":
-      operation.push(target.innerHTML);
+      iOperand = 2;
+      operation[1] = target.innerHTML;
+      display.textContent = target.innerHTML;
       console.log(operation);
       break;
-      
+
     case "clearButton":
-      operation.length = 0;
+      operation.splice(0, operation.length);
+      operation[0] = 0;
+      operation[1] = '';
+      operation[2] = 0;
+      iOperand = 0;
       console.log(operation);
       break;
 
