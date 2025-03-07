@@ -88,7 +88,7 @@ digitContainer.addEventListener("click", (event) => {
 
   switch (target.className) {
     case "digitButton":
-      operation[iOperand] = parseInt(operation[iOperand] + target.innerHTML);
+      operation[iOperand] = parseFloat(operation[iOperand] + target.innerHTML);
       displayOperation();
       console.log(operation);
       break;
@@ -145,4 +145,3 @@ buttonContainer.appendChild(digitContainer);
 
 container.appendChild(display);
 container.appendChild(buttonContainer);
-
