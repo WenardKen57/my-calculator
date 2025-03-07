@@ -21,39 +21,63 @@ const equalOperationButton = document.createElement("button")
 const clearOperationButton = document.createElement("button");
 
 clearOperationButton.classList.toggle("clearButton");
-
-
-let x = '', y = '', operator = '';
-
-function add(x, y) {
-  return (x + y);
-}
-
-function subtract(x, y) {
-  return (x - y);
-}
-
-function multiply(x, y) {
-  return (x * y);
-}
-
-function divide(x, y) {
-  return (x / y);
-}
-
-function operate(operator, xArr, yArr) {
-  
-}
+equalOperationButton.classList.toggle("equalButton");
 
 addOperationButton.textContent = "+";
 subtractOperationButton.textContent = "-";
 multiplyOperationButton.textContent = "x";
-divideOperationButton.textContent = "÷";
+divideOperationButton.textContent = "/";
 equalOperationButton.textContent = "Equal";
 clearOperationButton.textContent = "Clear";
 
 const operation = [[], [], []];
-let iOperand = 0;
+let iOperand = 0; // Dictates what operand we're operating
+let result = undefined;
+
+function displayResult() {
+  iOperand = 0;
+  switch (operation[1]) {
+    case "+":
+      result = operation[0] + operation[2];
+      // right operand becomes the result so calculation can continue after the first operation
+      operation[0] = result;  
+      operation[2] = 0;
+      display.textContent = result;
+      console.log(operation);
+      break;
+
+    case "-":
+      result = operation[0] - operation[2];
+      // right operand becomes the result so calculation can continue after the first operation
+      operation[0] = result;  
+      operation[2] = 0;
+      display.textContent = result;
+      console.log(operation);
+      
+      break;
+
+    case "x":
+      result = operation[0] * operation[2];
+      // right operand becomes the result so calculation can continue after the first operation
+      operation[0] = result;  
+      operation[2] = 0;
+      display.textContent = result;
+      console.log(operation);
+      break;
+
+    case "/":
+      result = operation[0] / operation[2];
+      // right operand becomes the result so calculation can continue after the first operation
+      operation[0] = result;  
+      operation[2] = 0;
+      display.textContent = result;
+      console.log(operation);
+      break;
+
+    default:
+      break;
+  }
+}
 
 function displayOperation() {
   display.textContent = operation[iOperand];
@@ -91,8 +115,12 @@ operationButtonContainer.addEventListener("click", (event) => {
       operation[1] = '';
       operation[2] = 0;
       iOperand = 0;
+      display.textContent = '';
       console.log(operation);
       break;
+
+    case "equalButton":
+      displayResult();
 
     default:
       break;
