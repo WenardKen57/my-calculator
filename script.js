@@ -17,10 +17,13 @@ const addOperationButton = operationButton.cloneNode(true);
 const subtractOperationButton = operationButton.cloneNode(true);
 const multiplyOperationButton = operationButton.cloneNode(true);
 const divideOperationButton = operationButton.cloneNode(true);
-const equalOperationButton = operationButton.cloneNode(true);
-const clearOperationButton = operationButton.cloneNode(true);
+const equalOperationButton = document.createElement("button")
+const clearOperationButton = document.createElement("button");
 
-let x, y, operator;
+clearOperationButton.classList.toggle("clearButton");
+
+
+let x = '', y = '', operator = '';
 
 function add(x, y) {
   return (x + y);
@@ -42,27 +45,47 @@ function operate(operator, x, y) {
 
 }
 
-let displayValue = "";
-display.textContent = displayValue;
 addOperationButton.textContent = "+";
 subtractOperationButton.textContent = "-";
 multiplyOperationButton.textContent = "x";
 divideOperationButton.textContent = "÷";
-equalOperationButton.textContent = "=";
+equalOperationButton.textContent = "Equal";
 clearOperationButton.textContent = "Clear";
+
+const operation = [];
 
 digitContainer.addEventListener("click", (event) => {
   let target = event.target;
 
   switch (target.className) {
     case "digitButton":
-      display.textContent = displayValue + target.innerHTML;
+      operation.push(parseInt(target.innerHTML));
+      console.log(operation);
       break;
-    
+
     default:
       break;
   }
 })
+
+operationButtonContainer.addEventListener("click", (event) => {
+  let target = event.target;
+
+  switch (target.className) {
+    case "operationButton":
+      operation.push(target.innerHTML);
+      console.log(operation);
+      break;
+      
+    case "clearButton":
+      operation.length = 0;
+      console.log(operation);
+      break;
+
+    default:
+      break;
+  }
+});
 
 for (let i = 0; i < 10; i++) {
   digitButton.textContent = i;
