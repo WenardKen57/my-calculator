@@ -1,7 +1,7 @@
 # my-calculator
 A simple calculator I've made that can compute basic arithmetic
 
-# Table
+# Table of contents
 
 - [Preview](#preview)
 - [Live Preview](#live-preview)
